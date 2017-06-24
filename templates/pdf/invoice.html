@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <style type="text/css">
+         body {
+             font-weight: 200;
+             font-size: 13px;
+         }
+         @page {
+            size: a4 portrait;
+            @frame header_frame {           /* Static Frame */
+                -pdf-frame-content: header_content;
+                left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+            }
+            @frame content_frame {          /* Content Frame */
+                left: 50pt; width: 512pt; top: 90pt; height: 632pt;
+            }
+            @frame footer_frame {           /* Another static Frame */
+                -pdf-frame-content: footer_content;
+                left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+            }
+        }
+        #header_content{
+            text-align: center;
+            font-size: 17px;
+            text-transform: uppercase;
+            text-decoration: underline;
+        }
+         .hrItem {
+             border: none;
+             height: 1px;
+             /* Set the hr color */
+             color: #333; /* old IE */
+             background-color: #fff; /* Modern Browsers */
+         }
+         .table {
+            width: 100%;
+            max-width: 100%;
+            border-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        .table-bordered {
+            border: 1px solid grey;
+            padding: 3px;
+        }
+        .taxes > p {
+            margin: 2px;
+        }
+        .taxes-right > p{
+            text-align: right;
+        }
+        .compact{
+            margin:0px;
+            font-size: 12px;
+        }
+        .disclaimer{
+            text-align: center;
+            padding:0px;
+            color: grey;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Content for Static Frame 'header_frame' -->
+<div id="header_content">INVOICE</div>
+
+<!-- Content for Static Frame 'footer_frame' -->
+<div id="footer_content">Page
+    <pdf:pagenumber> of
+        <pdf:pagecount>
+</div>
+
+
+<table class="table table-bordered">
+    <tr>
+        <td rowspan="3" width="600px">M/s Rajat Engineering Service<br>Address</td>
+        <td>Invoice No:</td>
+        <td>Dated: <br>12/12/2017</td>
+    </tr>
+    <tr>
+        <td>Delivery Note</td>
+        <td></td>
+    </tr>
+    <tr >
+        <td style="padding:0px; margin:0px;">Supplier Reference: Mr Kumar deep</td>
+        <td>Other reference(s)<br><br></td>
+    </tr>
+    <tr>
+        <td rowspan="3" width="600px">buyer:<br>Reliance company</td>
+        <td>Buyer's Order No:<br>23233</td>
+        <td>Dated:<br>12/12/2017</td>
+    </tr>
+    <tr>
+        <td>Dispatch Document No<br>2235345</td>
+        <td>Dated<br>12/12/2017</td>
+    </tr>
+    <tr>
+        <td>Dispatched Through:<br>--------------------</td>
+        <td>Destination:<br>Hyderabad</td>
+    </tr>
+</table>
+<br>
+<table class="table table-bordered">
+
+    <thead>
+    <th>sl No.</th>
+    <th width="700px">Particulars</th>
+    <th>Quantity</th>
+    <th>UOM</th>
+    <th>Rate</th>
+    <th>Amount</th>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td>1</td>
+        <td>One box of chlorine with 90 ml of 8000 bottles of distibled water</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>80000</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>One box of chlorine with 90 ml of 8000 bottles of distibled water</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>6000</td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>
+            <i>(Category: Maintenance or Repair Service)</i>
+            <div style="text-align:right">
+                <p style="margin:0px">Total Basic Amount</p>
+                <p style="margin:0px">Service Tax @ 14%</p>
+                <p style="margin:0px">Swachh Bharat Cess @ 0.5%</p>
+                <p style="margin:0px">Krishi Kalyan Cess @ 0.5%</p>
+            </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <br>
+            <div class="taxes">
+                <p style="margin:0px">4646</p>
+                <p style="margin:0px">44</p>
+                <p style="margin:0px">656</p>
+                <p style="margin:0px">66</p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td style="text-align: right;">Total</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>89000.00</td>
+    </tr>
+    </tbody>
+</table>
+<table class="table table-bordered">
+    <tr>
+        <td colspan="2">
+            <b style="text-align:left;">Amount Chargeable (In Words): </b>
+            <i style="text-align:right;">E.& O.E</i>
+            <p>Indian Rupees Sixty Seven Thousand Eight Hundred Only</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: none">
+            <div >
+                <p class="compact">Company's CST & TIN No: 36889675401
+                    <small>w.e.f 1st.Jan.2013</small>
+                </p>
+                <p class="compact">Company's Service Tax no: AAPFR0722DSD001</p>
+                <p class="compact">Company's PAN: AAPFR0722D</p>
+            </div>
+        </td>
+        <td style="border: 1px solid grey; text-align: center;">
+            <b style=" magin-bottom:10px;">For RAJAT ENGINEERING SERVICE</b>
+            <br><br><br><br>
+            <i style="margin-top: 5px;">Authorised Signatory/Manager</i>
+        </td>
+    </tr>
+</table>
+<div class="disclaimer">
+    <p>SUBJECT TO HYDERABAD JURISDICTION | Link: http://rajates.in/invoice/2322523/</p>
+</div>
+</div>
+</body>
+</html>
+

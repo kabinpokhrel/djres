@@ -1,0 +1,70 @@
+{% extends 'dashboard-base.html' %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        {% include 'partials/dashboard/sidebar.html' %}
+
+        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+            <h1>{{ client.client_name }}</h1>
+            <div class="row">
+                <div class="col-sm-12">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">PO Number</button>
+                            </span>
+                            <select name="po_number" id="po_number" class="form-control">
+                                <option value="">select po number</option>
+                                {% for po in client.purchaseorder_set.all %}
+                                <option value="{{ po.id }}">{{ po.po_number}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Invoice Lists</h1>
+                    {% if purchases %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Invoice No</th>
+                                <th>Purchase Order</th>
+                                <th>Invoice Date</th>
+                                <th>Taxable</th>
+                                <th>Payment Due</th>
+                                <th>Payment Recieved?</th>
+                                <th>Invoiced Amount</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for invoice in purchases.invoice_set.all %}
+
+                            <tr>
+                                <td><a href="#">{{ invoice.id }}</a></td>
+                                <td>{{ invoice.purchase_order }}</td>
+                                <td>{{ invoice.purchase_date }}</td>
+                                <td>{{ invoice.taxable }}</td>
+                                <td>{{ invoice.payment_due }}</td>
+                                <td>{{ invoice.payment_recieved }}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <h3>No invoices for the PO</h3>
+                    {% endif %}
+
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+{% endblock %}
